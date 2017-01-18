@@ -61,13 +61,25 @@ $sql1 = $db->tailleRole();
           for ($i = 1; $i <= $res['val']; $i++) {
             if (isset($_POST[$i])){
 
+                $sql2 = $db->afficheRole($i);
 
-              
-              echo($i);
+                foreach($sql2 as $val)
+                {
+                   if($val['val']==0){
+
+                     echo("supprimer");
+                   }
+                  else{
+                    echo("suppression impossible il y a :".$val['val']." membres dans ce groupe");
+                  }
+                  }
+
+                  }
+
 
 
 
             }
-          }
+          
         }
 ?>
