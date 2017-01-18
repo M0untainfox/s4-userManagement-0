@@ -2,7 +2,15 @@
 namespace ETU2_41;
 require_once "pdo.php";
 $db = new Database();
-
+echo"
+<fieldset>
+	<form name='formCour' action='' method='post'>
+  <table style='border-collapse: collapse;'>
+<tr>
+<th>Nom</th>
+<th>NbUsers</th>
+<th>Actions</th>
+</tr>";
 
 $sql1 = $db->tailleRole();
 
@@ -10,7 +18,7 @@ $sql1 = $db->tailleRole();
     {
       for ($i = 1; $i <= $res['val']; $i++) {
 
-
+        echo("<tr style='border: 2px solid black;'>");
 
 
 
@@ -21,8 +29,8 @@ $sql1 = $db->tailleRole();
 
       foreach($sql3 as $val)
       {
-          echo("</br>");
-          echo  ("Nom: ".$val['name']);
+
+          echo  ("<td ><center>".$val['name']."</center></td>");
 
 
         }
@@ -30,18 +38,36 @@ $sql1 = $db->tailleRole();
 
       foreach($sql2 as $cour)
       {
-          echo("</br>");
+
         //  echo  ("<b>ID:".$cour['id']."  NOM:". $cour['firstname']." PRENOM:".$cour['lastname']."</b>");
-          echo  ("Il y a : ".$cour['val']." membres");
+          echo  ("<td style='border: 1px solid black;'><center>".$cour['val']."</center></td>");
 
         }
-        echo("</br>");
 
+        echo("<td ><center><input type='submit' name='".$i."' value='supprimer' id='".$i."' ></center></td>");
 
-
+        echo("</tr>");
       //SQL1
       }
 
       }
+      echo("</table>
+      </form>");
 
+
+
+      foreach($sql1 as $res)
+        {
+          for ($i = 1; $i <= $res['val']; $i++) {
+            if (isset($_POST[$i])){
+
+
+              
+              echo($i);
+
+
+
+            }
+          }
+        }
 ?>
