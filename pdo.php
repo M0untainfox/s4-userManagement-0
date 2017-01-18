@@ -194,6 +194,12 @@
 			return $this->executerRequeteAvecResultat($sql);
 		}
 
+		function effaRole($id)
+		{
+			$sql = "DELETE FROM `role` WHERE id=$id ";
+			return $this->executerRequeteAvecResultat($sql);
+		}
+
 
 
 	}

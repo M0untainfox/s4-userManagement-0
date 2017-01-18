@@ -66,7 +66,7 @@ $sql1 = $db->tailleRole();
                 foreach($sql2 as $val)
                 {
                    if($val['val']==0){
-
+                     $sql2 = $db->effaRole($i);
                      echo("supprimer");
                    }
                   else{
@@ -80,6 +80,6 @@ $sql1 = $db->tailleRole();
 
 
             }
-          
+
         }
 ?>
